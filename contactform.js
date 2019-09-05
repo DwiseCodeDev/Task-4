@@ -1,52 +1,28 @@
-
-function ContactForm()
-{ 
-var name = document.forms["ContactForm"]["name"];               
-var email = document.forms["ContactForm"]["email"];    
-var title = document.forms["ContactForm"]["title"];
-var message = document.forms["ContactForm"]["message"];  
-
-if (name.value < 4)                                  
-{ 
-    window.alert("Name: Your name should be longer than 4 characters."); 
-    name.focus(); 
-    return false; 
-} 
-   
-if (email.value == "")                                   
-{ 
-    window.alert("E-mail: Please give me a valid e-mail address."); 
-    email.focus(); 
-    return false; 
-} 
-
-if (email.value.indexOf("@", 0) < 0)                 
-{ 
-    window.alert("E-mail: Please give me a valid e-mail address."); 
-    email.focus(); 
-    return false; 
-} 
-
-if (email.value.indexOf(".", 0) < 0)                 
-{ 
-    window.alert("E-mail: Please give me a valid e-mail address."); 
-    email.focus(); 
-    return false; 
-} 
-
-if (title.value == "")                           
-{ 
-    window.alert("Please enter your title."); 
-    title.focus(); 
-    return false; 
-} 
-
-if (message.value < 20)                        
-{ 
-    window.alert("Message: Please use at least 20 characters in your message"); 
-    message.focus(); 
-    return false; 
-} 
-
-return true; 
-}
+function validation ()
+{
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var title = document.getElementById("title").value;
+    var message = document.getElementById("message").value;
+ 
+   if (name=="" || title=="" || message=="")
+   { document.getElementById("required").innerHTML = "Oops, please input each details";
+    return false;
+   }
+   else if (name.length <4){
+     document.getElementById("required").innerHTML = "Oops, please input Your Full Name";
+     return false;
+   }
+   else if (message.length <20){
+     document.getElementById("required").innerHTML = "I want to hear from you, Please!";
+     return false;
+   }
+    else if(email.indexOf("@") == -1 || email.length <6){
+     text = "Please Enter Valid Email Address";
+     error_message.innerHTML = text;
+     return false;
+ }
+ else{ ("Form Submitted Succesfully!")
+ return true;
+ }
+ }
